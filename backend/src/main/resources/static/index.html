@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Password Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="split-screen">
+        
+        <!-- Left Side: Interactive Area -->
+        <div class="left-panel">
+            <h1 class="title">SECURE<br>GENERATOR</h1>
+
+            <div class="form-container">
+                
+                <!-- Output Display -->
+                <div class="input-group">
+                    <div class="icon-wrapper"><i class="fa-solid fa-lock"></i></div>
+                    <input type="text" id="password-output" placeholder="Your password will appear here..." readonly>
+                    <button id="copy-btn" title="Copy to clipboard"><i class="fa-regular fa-copy"></i></button>
+                </div>
+
+                <!-- Strength Display (initially hidden or empty) -->
+                <div class="strength-indicator" id="strength-display">
+                    Strength: <span id="strength-text" class="badge">None</span>
+                </div>
+
+                <!-- Controls -->
+                <div class="controls">
+                    <div class="length-control">
+                        <label for="pwd-length">Length: <span id="length-val">12</span></label>
+                        <input type="range" id="pwd-length" min="4" max="32" value="12">
+                    </div>
+
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="chk-upper" checked>
+                        <span class="checkmark"></span>
+                        Include Uppercase (A-Z)
+                    </label>
+
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="chk-lower" checked>
+                        <span class="checkmark"></span>
+                        Include Lowercase (a-z)
+                    </label>
+
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="chk-numbers" checked>
+                        <span class="checkmark"></span>
+                        Include Numbers (0-9)
+                    </label>
+
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="chk-symbols" checked>
+                        <span class="checkmark"></span>
+                        Include Symbols (!@#$)
+                    </label>
+                </div>
+
+                <!-- The error display -->
+                <div id="error-msg" class="error-msg"></div>
+
+                <div class="action-btn-wrapper">
+                    <button class="primary-btn" id="generate-btn">GENERATE</button>
+                </div>
+
+                <!-- Social Icons matching the prompt -->
+                <div class="social-icons">
+                    <div class="icon fb"><i class="fa-brands fa-facebook-f"></i></div>
+                    <div class="icon google"><i class="fa-brands fa-google"></i></div>
+                    <div class="icon twitter"><i class="fa-brands fa-twitter"></i></div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Torn Edge Divider -->
+        <div class="torn-edge"></div>
+
+        <!-- Right Side: Beautiful Ocean Image Layer -->
+        <div class="right-panel">
+            <div class="overlay-text">
+                <h2>STAY SECURE</h2>
+                <p>PROTECT YOUR DATA ONLINE</p>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

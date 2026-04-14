@@ -1,0 +1,80 @@
+# Job Portal Application - Presentation
+
+````carousel
+# Slide 1: Introduction
+## Find Your Dream Job - Job Portal Application
+
+**Introduction**
+The Job Portal Application is a web-based platform designed to connect IT professionals with their dream jobs and allow recruiters to post new job openings easily.
+
+**Key Uses:**
+- **For Candidates:** Browse available job openings, view required tech stacks, and check experience requirements.
+- **For Recruiters:** Post new job opportunities with detailed descriptions and specific skill requirements.
+
+<!-- slide -->
+# Slide 2: Tech Stack
+
+Our application leverages a robust, modern technology stack.
+
+**Backend Framework:**
+- **Java 21:** The core programming language.
+- **Spring Boot:** Provides the architecture, auto-configuration, and embedded Tomcat server.
+- **Maven:** Used for dependency management and building the project.
+
+**Frontend Technologies:**
+- **JSP (JavaServer Pages):** Renders the dynamic frontend pages.
+- **JSTL (JSP Standard Tag Library):** Used for iterating lists (e.g., `<c:forEach>`) dynamically.
+- **Bootstrap 5:** Used for a modern, responsive, and beautiful UI with glass-morphism effects.
+- **HTML5 / CSS3:** For structuring and custom styling.
+
+<!-- slide -->
+# Slide 3: Architecture & Flow of Code
+
+The project strictly follows the **MVC (Model-View-Controller)** Design Pattern.
+
+```mermaid
+graph TD
+    User([User / Browser]) -->|HTTP Request| Controller(JobController)
+    Controller -->|Calls API| Service(JobService)
+    Service -->|Gets/Saves Data| Repo(JobRepo)
+    Repo -->|List of Data| Service
+    Service -->|Returns Data| Controller
+    Controller -->|Adds data to Model| View(JSP Pages)
+    View -->|HTML Response| User
+```
+
+**Flow of Code:**
+1. Action starts from the **Browser/UI** (e.g., clicking 'View All Jobs').
+2. The request hits **JobController**, which asks the **JobService** for data.
+3. **JobService** fetches data from **JobRepo** (In-Memory Database).
+4. The controller creates a `Model`, attaches the job data, and returns a **JSP View**.
+
+<!-- slide -->
+# Slide 4: Project Structure
+
+Explanation of the core components in our codebase:
+
+- **`JobAppApplication.java`**: The entry point of our Spring Boot application.
+- **`JobController.java` (`@Controller`)**: Manages the routing (`/home`, `/addjob`, `/viewalljobs`) and orchestrates frontend requests with backend logic.
+- **`JobRepo.java` (`@Repository`)**: Simulates our database. Currently uses an in-memory `ArrayList` to store and retrieve `JobPost` objects.
+- **`JobPost.java`**: Our Model (POJO). It contains fields like `postProfile`, `postDesc`, `reqExperience`, and `postTechStack`.
+- **Views**:
+  - `home.jsp`: The beautiful, animated landing page.
+  - `addjob.jsp`: The job creation form.
+  - `viewalljobs.jsp`: Dynamic list displaying all jobs using JSTL iterating techniques.
+
+<!-- slide -->
+# Slide 5: Features & Future Scope
+
+**Current Features:**
+- **Dynamic Routing:** Seamless navigation between Home, Add Job, and View Jobs.
+- **Modern UI:** Responsive, gradient-rich UI built with Bootstrap 5.
+- **Job Creation:** Form handling to seamlessly add new job posts into memory.
+- **Job Listing:** Dynamically renders a list of jobs with specific tech-stack badges.
+
+**Future Scope / Enhancements:**
+- **Database Integration:** Connect with MySQL or PostgreSQL using Spring Data JPA instead of an in-memory list.
+- **Authentication:** Implement Spring Security for Recruiter (Admin) and Candidate (User) roles.
+- **Search & Filter:** Add capability to filter jobs by Tech Stack or Experience dynamically.
+- **Resume Parsing:** Add a feature for candidates to upload resumes and auto-fill profile details!
+````
